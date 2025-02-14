@@ -211,7 +211,6 @@ export default function BooksPage() {
       if (selected) {
         setSelectedBook(selected);
       }
-      alert(errorMessage);
     }
   };
 
@@ -346,8 +345,17 @@ export default function BooksPage() {
 
       {/* Book detail modal */}
       {selectedBook && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
-          <div className="bg-white text-gray-900 p-6 rounded-lg shadow-lg max-w-lg relative">
+        <div
+          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+          onClick={() => {
+            setSelectedBook(null);
+            setEditMode(false);
+          }}
+        >
+          <div
+            className="bg-white text-gray-900 p-6 rounded-lg shadow-lg max-w-lg relative"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               className="absolute top-2 right-2 text-gray-600 hover:text-gray-800"
               onClick={() => {
@@ -355,11 +363,10 @@ export default function BooksPage() {
                 setEditMode(false);
               }}
             >
-              
+              ❌
             </button>
 
             {editMode && editedBook ? (
-              // Edit book form
               <div>
                 <h2 className="text-2xl font-semibold">Edit Book</h2>
                 <input
@@ -408,7 +415,6 @@ export default function BooksPage() {
                 </button>
               </div>
             ) : selectedBook ? (
-              // Display book details
               <div>
                 <h2 className="text-2xl font-semibold">{selectedBook.title}</h2>
                 <p className="text-gray-600">Author: {selectedBook.author}</p>
@@ -417,7 +423,7 @@ export default function BooksPage() {
                 </p>
                 <p className="mt-4">{selectedBook.description}</p>
 
-                {/* Insight in modal */}
+                {/* AI Insight sau eroare */}
                 {aiInsights[selectedBook.id] && (
                   <p className="mt-4 p-3 bg-blue-100 text-blue-900 rounded-md shadow-md">
                     <strong>📖 AI Insight:</strong>{" "}

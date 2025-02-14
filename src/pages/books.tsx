@@ -355,7 +355,7 @@ export default function BooksPage() {
                 setEditMode(false);
               }}
             >
-              ✖
+              
             </button>
 
             {editMode && editedBook ? (

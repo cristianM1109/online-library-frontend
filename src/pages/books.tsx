@@ -322,7 +322,7 @@ export default function BooksPage() {
           ))}
         </motion.div>
 
-        {/* 🔹 Pagination buttons */}
+        {/* Pagination buttons */}
         <div className="flex justify-center mt-6 gap-4">
           <button
             onClick={() => setPage(page - 1)}

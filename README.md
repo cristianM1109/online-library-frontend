@@ -11,8 +11,8 @@ This is the frontend of the Online Library application, built with **Next.js** a
 ## Installation
 Clone the repository and navigate to the frontend folder:
 ```sh
-git clone https://github.com/user/online-library.git
-cd online-library/frontend```
+git clone https://github.com/cristianM1109/online-library-frontend.git
+cd online-library```
 
 Install dependencies:
 npm install
